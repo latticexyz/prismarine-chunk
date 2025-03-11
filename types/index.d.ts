@@ -34,7 +34,7 @@ declare class PCChunk extends CommonChunk {
   getBlockData(pos: Vec3): number
   getBlockLight(pos: Vec3): number
   getSkyLight(pos: Vec3): number
-  getBiome(pos: Vec3): number
+  getBiome(pos: Vec3): string 
   setBlockStateId(pos: Vec3, stateId: number): number
   setBlockType(pos: Vec3, id: number): void
   setBlockData(pos: Vec3, data: Buffer): void
