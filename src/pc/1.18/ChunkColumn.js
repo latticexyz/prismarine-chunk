@@ -323,7 +323,19 @@ module.exports = (Block, mcData) => {
       this.biomes[y + minCY] = BiomeSection.fromLocalPalette({
         data: BitArray.fromLongArray(biomes.data || {}, biomes.bitsPerBiome),
         palette: biomes.palette
-          .map(e => mcData.biomesByName[e.replace('minecraft:', '')] ?? raiseUnknownBiome(e))
+          .map(
+            (e) =>
+              mcData.biomesByName[e.replace("minecraft:", "")] ?? {
+                id: 34,
+                name: "nether_wastes",
+                category: "nether",
+                temperature: 2.0,
+                has_precipitation: false,
+                dimension: "nether",
+                displayName: "Nether Wastes",
+                color: 12532539,
+              }
+          )
           .map(e => e.id)
       })
 
